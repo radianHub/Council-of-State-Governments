@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrictions__c</fullName>
+    <externalId>false</externalId>
+    <label>Restrictions</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10008</fullName>
+                <default>false</default>
+                <label>General Unrestricted</label>
+            </value>
+            <value>
+                <fullName>10007</fullName>
+                <default>false</default>
+                <label>Reserve - Annual Meeting</label>
+            </value>
+            <value>
+                <fullName>10006</fullName>
+                <default>false</default>
+                <label>Reserve - Building</label>
+            </value>
+            <value>
+                <fullName>10005</fullName>
+                <default>false</default>
+                <label>Reserve - Operations Restricted</label>
+            </value>
+            <value>
+                <fullName>10004</fullName>
+                <default>false</default>
+                <label>Reserve - Operations Unrestricted</label>
+            </value>
+            <value>
+                <fullName>10003</fullName>
+                <default>false</default>
+                <label>Reserve - Technology</label>
+            </value>
+            <value>
+                <fullName>10002</fullName>
+                <default>false</default>
+                <label>With Donor Restriction</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
