@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group__c</fullName>
+    <externalId>false</externalId>
+    <label>Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Appropriations/Member Dues</fullName>
+                <default>false</default>
+                <label>Appropriations/Member Dues</label>
+            </value>
+            <value>
+                <fullName>Associates and Other Programs</fullName>
+                <default>false</default>
+                <label>Associates and Other Programs</label>
+            </value>
+            <value>
+                <fullName>Conferences and Meetings</fullName>
+                <default>false</default>
+                <label>Conferences and Meetings</label>
+            </value>
+            <value>
+                <fullName>Contributions and Sponsorships</fullName>
+                <default>false</default>
+                <label>Contributions and Sponsorships</label>
+            </value>
+            <value>
+                <fullName>Publications</fullName>
+                <default>false</default>
+                <label>Publications</label>
+            </value>
+            <value>
+                <fullName>Advertising Sales</fullName>
+                <default>false</default>
+                <label>Advertising Sales</label>
+            </value>
+            <value>
+                <fullName>Rental Income</fullName>
+                <default>false</default>
+                <label>Rental Income</label>
+            </value>
+            <value>
+                <fullName>Investment Income</fullName>
+                <default>false</default>
+                <label>Investment Income</label>
+            </value>
+            <value>
+                <fullName>Other Revenue</fullName>
+                <default>false</default>
+                <label>Other Revenue</label>
+            </value>
+            <value>
+                <fullName>Grant Revenue - For Accountings Use Only</fullName>
+                <default>false</default>
+                <label>Grant Revenue - For Accountings Use Only</label>
+            </value>
+            <value>
+                <fullName>Indirect and Other Recovery</fullName>
+                <default>false</default>
+                <label>Indirect and Other Recovery</label>
+            </value>
+            <value>
+                <fullName>Intercompany Transfers</fullName>
+                <default>false</default>
+                <label>Intercompany Transfers</label>
+            </value>
+            <value>
+                <fullName>Salaries &amp; Wages</fullName>
+                <default>false</default>
+                <label>Salaries &amp; Wages</label>
+            </value>
+            <value>
+                <fullName>Employee Benefits</fullName>
+                <default>false</default>
+                <label>Employee Benefits</label>
+            </value>
+            <value>
+                <fullName>Supplies, Postage/Delivery</fullName>
+                <default>false</default>
+                <label>Supplies, Postage/Delivery</label>
+            </value>
+            <value>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+                <label>Information Technology</label>
+            </value>
+            <value>
+                <fullName>Interest, Penalties and Bad Debt</fullName>
+                <default>false</default>
+                <label>Interest, Penalties and Bad Debt</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Other Office Expenses</fullName>
+                <default>false</default>
+                <label>Other Office Expenses</label>
+            </value>
+            <value>
+                <fullName>Equipment</fullName>
+                <default>false</default>
+                <label>Equipment</label>
+            </value>
+            <value>
+                <fullName>Conference and Meetings</fullName>
+                <default>false</default>
+                <label>Conference and Meetings</label>
+            </value>
+            <value>
+                <fullName>Consultants and Subcontracts</fullName>
+                <default>false</default>
+                <label>Consultants and Subcontracts</label>
+            </value>
+            <value>
+                <fullName>Travel</fullName>
+                <default>false</default>
+                <label>Travel</label>
+            </value>
+            <value>
+                <fullName>Committees</fullName>
+                <default>false</default>
+                <label>Committees</label>
+            </value>
+            <value>
+                <fullName>Printing and Production</fullName>
+                <default>false</default>
+                <label>Printing and Production</label>
+            </value>
+            <value>
+                <fullName>Legal and Accounting</fullName>
+                <default>false</default>
+                <label>Legal and Accounting</label>
+            </value>
+            <value>
+                <fullName>Fundraising</fullName>
+                <default>false</default>
+                <label>Fundraising</label>
+            </value>
+            <value>
+                <fullName>Taxes</fullName>
+                <default>false</default>
+                <label>Taxes</label>
+            </value>
+            <value>
+                <fullName>Property Management</fullName>
+                <default>false</default>
+                <label>Property Management</label>
+            </value>
+            <value>
+                <fullName>Indirect Expense</fullName>
+                <default>false</default>
+                <label>Indirect Expense</label>
+            </value>
+            <value>
+                <fullName>Indirect Recovery</fullName>
+                <default>false</default>
+                <label>Indirect Recovery</label>
+            </value>
+            <value>
+                <fullName>Operations Recovery</fullName>
+                <default>false</default>
+                <label>Operations Recovery</label>
+            </value>
+            <value>
+                <fullName>Other Recovery</fullName>
+                <default>false</default>
+                <label>Other Recovery</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
