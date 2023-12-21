@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Location</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10</fullName>
+                <default>false</default>
+                <label>The Council of State Governments</label>
+            </value>
+            <value>
+                <fullName>AAPCA</fullName>
+                <default>false</default>
+                <label>The Association of Air Pollution Control</label>
+            </value>
+            <value>
+                <fullName>APPA</fullName>
+                <default>false</default>
+                <label>American Probation and Parole Association</label>
+            </value>
+            <value>
+                <fullName>CANNRA</fullName>
+                <default>false</default>
+                <label>Cannabis Regulators Association</label>
+            </value>
+            <value>
+                <fullName>East</fullName>
+                <default>false</default>
+                <label>East Region</label>
+            </value>
+            <value>
+                <fullName>JC</fullName>
+                <default>false</default>
+                <label>Justice Center</label>
+            </value>
+            <value>
+                <fullName>MIC3</fullName>
+                <default>false</default>
+                <label>Military Interstate Children&apos;s Compact C</label>
+            </value>
+            <value>
+                <fullName>Midwest</fullName>
+                <default>false</default>
+                <label>Midwest Region</label>
+            </value>
+            <value>
+                <fullName>NASFA</fullName>
+                <default>false</default>
+                <label>National Association of ST Facility Adm</label>
+            </value>
+            <value>
+                <fullName>NASPE</fullName>
+                <default>false</default>
+                <label>National Association of ST Pers Exec</label>
+            </value>
+            <value>
+                <fullName>NASPTD</fullName>
+                <default>false</default>
+                <label>National Association of ST Tech Director</label>
+            </value>
+            <value>
+                <fullName>NATL</fullName>
+                <default>false</default>
+                <label>National</label>
+            </value>
+            <value>
+                <fullName>NATL HQ</fullName>
+                <default>false</default>
+                <label>National Headquarters</label>
+            </value>
+            <value>
+                <fullName>NEMA</fullName>
+                <default>false</default>
+                <label>National Emergency Mgmt Association</label>
+            </value>
+            <value>
+                <fullName>NHCSL</fullName>
+                <default>false</default>
+                <label>National Hispanic Caucus of ST Legis</label>
+            </value>
+            <value>
+                <fullName>SIDO</fullName>
+                <default>false</default>
+                <label>State International Development Orgs</label>
+            </value>
+            <value>
+                <fullName>South</fullName>
+                <default>false</default>
+                <label>South Region</label>
+            </value>
+            <value>
+                <fullName>West</fullName>
+                <default>false</default>
+                <label>West Region</label>
+            </value>
+            <value>
+                <fullName>WIG</fullName>
+                <default>false</default>
+                <label>Women in Government</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
