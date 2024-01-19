@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>1</fullName>
+        <default>false</default>
+        <label>Administration</label>
+    </customValue>
+    <customValue>
+        <fullName>2</fullName>
+        <default>false</default>
+        <label>Executive Management</label>
+    </customValue>
+    <customValue>
+        <fullName>3</fullName>
+        <default>false</default>
+        <label>Facilities</label>
+    </customValue>
+    <customValue>
+        <fullName>4</fullName>
+        <default>false</default>
+        <label>Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>5</fullName>
+        <default>false</default>
+        <label>Government Affairs</label>
+    </customValue>
+    <customValue>
+        <fullName>6</fullName>
+        <default>false</default>
+        <label>Human Resources</label>
+    </customValue>
+    <customValue>
+        <fullName>9</fullName>
+        <default>false</default>
+        <label>Information Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>7</fullName>
+        <default>false</default>
+        <label>Legal</label>
+    </customValue>
+    <customValue>
+        <fullName>8</fullName>
+        <default>false</default>
+        <label>Other General Administration</label>
+    </customValue>
+    <customValue>
+        <fullName>10</fullName>
+        <default>false</default>
+        <label>To Be Allocated</label>
+    </customValue>
+    <customValue>
+        <fullName>31</fullName>
+        <default>false</default>
+        <label>CSG-Affiliate Grants</label>
+    </customValue>
+    <customValue>
+        <fullName>32</fullName>
+        <default>false</default>
+        <label>CSG-AAPCA Grant</label>
+    </customValue>
+    <customValue>
+        <fullName>33</fullName>
+        <default>false</default>
+        <label>CSG-APPA Grant</label>
+    </customValue>
+    <customValue>
+        <fullName>34</fullName>
+        <default>false</default>
+        <label>CSG-NEMA Grant</label>
+    </customValue>
+    <customValue>
+        <fullName>11</fullName>
+        <default>false</default>
+        <label>Development</label>
+    </customValue>
+    <customValue>
+        <fullName>30</fullName>
+        <default>false</default>
+        <label>Emergency Management Accreditation Program</label>
+    </customValue>
+    <customValue>
+        <fullName>12</fullName>
+        <default>false</default>
+        <label>Policy and Programming</label>
+    </customValue>
+    <customValue>
+        <fullName>13</fullName>
+        <default>false</default>
+        <label>Center of Innovation</label>
+    </customValue>
+    <customValue>
+        <fullName>14</fullName>
+        <default>false</default>
+        <label>Agriculture and Food</label>
+    </customValue>
+    <customValue>
+        <fullName>15</fullName>
+        <default>false</default>
+        <label>Apprenticeships</label>
+    </customValue>
+    <customValue>
+        <fullName>16</fullName>
+        <default>false</default>
+        <label>COI (General)</label>
+    </customValue>
+    <customValue>
+        <fullName>17</fullName>
+        <default>false</default>
+        <label>Education</label>
+    </customValue>
+    <customValue>
+        <fullName>18</fullName>
+        <default>false</default>
+        <label>Healthcare</label>
+    </customValue>
+    <customValue>
+        <fullName>19</fullName>
+        <default>false</default>
+        <label>National Center of Interstate Compacts</label>
+    </customValue>
+    <customValue>
+        <fullName>20</fullName>
+        <default>false</default>
+        <label>Voting and Military Affairs</label>
+    </customValue>
+    <customValue>
+        <fullName>21</fullName>
+        <default>false</default>
+        <label>Workforce</label>
+    </customValue>
+    <customValue>
+        <fullName>22</fullName>
+        <default>false</default>
+        <label>Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>25</fullName>
+        <default>false</default>
+        <label>JC Behavioral Health</label>
+    </customValue>
+    <customValue>
+        <fullName>26</fullName>
+        <default>false</default>
+        <label>JC Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>27</fullName>
+        <default>false</default>
+        <label>JC Corrections and Reentry</label>
+    </customValue>
+    <customValue>
+        <fullName>28</fullName>
+        <default>false</default>
+        <label>JC Research</label>
+    </customValue>
+    <customValue>
+        <fullName>29</fullName>
+        <default>false</default>
+        <label>JC State Initiatives</label>
+    </customValue>
+    <customValue>
+        <fullName>23</fullName>
+        <default>false</default>
+        <label>Leadership Development</label>
+    </customValue>
+    <customValue>
+        <fullName>24</fullName>
+        <default>false</default>
+        <label>Membership</label>
+    </customValue>
+    <customValue>
+        <fullName>35</fullName>
+        <default>false</default>
+        <label>Managed Organizations</label>
+    </customValue>
+    <customValue>
+        <fullName>36</fullName>
+        <default>false</default>
+        <label>152 - 21st Century Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>37</fullName>
+        <default>false</default>
+        <label>154 - BOWHAY Institute</label>
+    </customValue>
+    <customValue>
+        <fullName>38</fullName>
+        <default>false</default>
+        <label>158 - Southern Legislative Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>39</fullName>
+        <default>false</default>
+        <label>160 - SLC - Host State</label>
+    </customValue>
+    <customValue>
+        <fullName>40</fullName>
+        <default>false</default>
+        <label>164 - CSG West</label>
+    </customValue>
+    <customValue>
+        <fullName>41</fullName>
+        <default>false</default>
+        <label>165 - Western Designated Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>42</fullName>
+        <default>false</default>
+        <label>166 - Midwest Legislative Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>43</fullName>
+        <default>false</default>
+        <label>168 - NESAAS</label>
+    </customValue>
+    <customValue>
+        <fullName>44</fullName>
+        <default>false</default>
+        <label>170 - Eastern Reginal Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>45</fullName>
+        <default>false</default>
+        <label>172 - Eastern Trade Council</label>
+    </customValue>
+    <customValue>
+        <fullName>46</fullName>
+        <default>false</default>
+        <label>174 - CSG West Meetings</label>
+    </customValue>
+    <customValue>
+        <fullName>47</fullName>
+        <default>false</default>
+        <label>180 - Midwest Passenger Rail Comm.</label>
+    </customValue>
+    <customValue>
+        <fullName>48</fullName>
+        <default>false</default>
+        <label>182 - Western Legislative Academy</label>
+    </customValue>
+    <customValue>
+        <fullName>49</fullName>
+        <default>false</default>
+        <label>346 - NASFA - Eastern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>50</fullName>
+        <default>false</default>
+        <label>347 - NASFA - Great Plains</label>
+    </customValue>
+    <customValue>
+        <fullName>51</fullName>
+        <default>false</default>
+        <label>348 - NASFA - Southeast Region</label>
+    </customValue>
+    <customValue>
+        <fullName>52</fullName>
+        <default>false</default>
+        <label>349 - NASFA - Western Region</label>
+    </customValue>
+    <customValue>
+        <fullName>53</fullName>
+        <default>false</default>
+        <label>381 - NASTD - Eastern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>54</fullName>
+        <default>false</default>
+        <label>382 - NASTD - Midwestern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>55</fullName>
+        <default>false</default>
+        <label>383 - NASTD - Southern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>56</fullName>
+        <default>false</default>
+        <label>384 - NASTD - Western Region</label>
+    </customValue>
+    <masterLabel>Departments</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
