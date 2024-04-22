@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProjectCategory__c</fullName>
+    <externalId>false</externalId>
+    <label>Project Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contract</fullName>
+                <default>false</default>
+                <label>Contract</label>
+            </value>
+            <value>
+                <fullName>Capitalized</fullName>
+                <default>false</default>
+                <label>Capitalized</label>
+            </value>
+            <value>
+                <fullName>Internal Non-billable</fullName>
+                <default>false</default>
+                <label>Internal Non-billable</label>
+            </value>
+            <value>
+                <fullName>Internal Billable</fullName>
+                <default>false</default>
+                <label>Internal Billable</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
