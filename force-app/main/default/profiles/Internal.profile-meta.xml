@@ -142,11 +142,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Mulesoft_Connector__mdt.LastCalloutDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
         <readable>true</readable>
@@ -381,9 +376,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Mulesoft_Connector__mdt-Mulesoft Connector Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
