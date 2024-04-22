@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relative_to_current_previous_expertise__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Does the funding opportunity relate to our current or previous work and staff expertise?
+Indicators:  Grant/Project History
+Convenings History (conferences, policy academies, webinars, task forces)
+Publications (Knowledge Center, The Current State, Capitol Ideas, policy reports, project deliverables, etc.)
+Staff Professional Backgrounds</inlineHelpText>
+    <label>Relative to current/previous expertise?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_or_No</valueSetName>
+    </valueSet>
+</CustomField>
