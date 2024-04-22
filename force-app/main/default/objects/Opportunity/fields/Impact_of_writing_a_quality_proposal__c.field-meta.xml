@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Impact_of_writing_a_quality_proposal__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Do we have other application, project and/or organizational deadlines that would jeopardize our ability to write a quality proposal?</inlineHelpText>
+    <label>Impact of writing a quality proposal?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_or_No</valueSetName>
+    </valueSet>
+</CustomField>
