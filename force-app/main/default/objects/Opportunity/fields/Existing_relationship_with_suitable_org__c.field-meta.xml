@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Existing_relationship_with_suitable_org__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Do we have an existing relationship with a suitable organization?</inlineHelpText>
+    <label>Existing relationship with suitable org?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_or_No</valueSetName>
+    </valueSet>
+</CustomField>
