@@ -1,0 +1,13 @@
+.container > div {
+    padding: 1em;
+}
+
+.items > div {
+    padding: 1em;
+}
+
+.donorCol {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+}
