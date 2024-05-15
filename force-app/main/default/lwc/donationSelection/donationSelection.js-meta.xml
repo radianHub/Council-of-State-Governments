@@ -8,6 +8,7 @@
 		<target>lightning__HomePage</target>
 		<target>lightning__RecordPage</target>
 		<target>lightningCommunity__Page</target>
+		<target>lightningCommunity__Page_Layout</target>
 		<target>lightningCommunity__Default</target>
 	</targets>
 	<targetConfigs>
@@ -29,8 +30,9 @@
 			</supportedFormFactors>
 		</targetConfig>
 		<targetConfig targets="lightningCommunity__Default">
-			<property label="Header Banner Color" name="headerColor" type="Color" default="black"/>
-			<property label="Header Text Color" name="headerTextColor" type="Color" default="white"/>	
+			<property label="Header Banner Color" name="headerColor" type="String" default="black"/>
+			<property label="Header Text Color" name="headerTextColor" type="String" default="white"/>	
+			<!-- <property name="headerColor" type="String"></property> -->
 		</targetConfig>
 	</targetConfigs>
 </LightningComponentBundle>

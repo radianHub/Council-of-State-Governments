@@ -23,11 +23,13 @@ export default class DonationSelection extends LightningElement {
 	addFee = false;
 	changeAmt = false;
 	donationSelection = true;
+	lock = false;
+	loading = true;
+	saving = false;
 
 	// # LIFECYCLE HOOKS
 	
 	connectedCallback() {
-		console.log('callback');
 		this.getProcessingFee()
 		this.getDonationAmounts()
 	}
@@ -35,15 +37,12 @@ export default class DonationSelection extends LightningElement {
 	renderedCallback() {
 		if (this.changeAmt) {
 			this.template.querySelectorAll('.typeBtn').forEach(i => {
-				console.log(i);
-				console.log(i.classList);
 				if (i.classList.contains('slds-button_brand')) {
 					this.unfocusBtn(i)			
 				}
 			})
 	
 			let typeBtn = this.template.querySelector('[data-id="' + this.givingType + '"]')
-			console.log(typeBtn);
 			this.focusBtn(typeBtn)
 	
 			if (this.showFreq) {
@@ -77,6 +76,8 @@ export default class DonationSelection extends LightningElement {
 			}
 			this.changeAmt = false
 		}
+
+		this.loading = false;
 	}
 
 	// # APEX
@@ -104,7 +105,6 @@ export default class DonationSelection extends LightningElement {
 						for (let i = 0; i < 6; i++) {
 							amountArr.push(currentAmount)
 							currentAmount = Math.round(currentAmount * (1 + (e.Percentage_to_Auto_Calculate__c * 0.01))).toFixed(2)
-							console.log(currentAmount);
 						}
 					} else {
 						amountArr.push(
@@ -183,7 +183,6 @@ export default class DonationSelection extends LightningElement {
 
 			this.honoree = {
 				...this.honoree,
-				hasHonor: this.honor,
 				honorType: this.honorSelection
 			}
 		}
@@ -248,7 +247,6 @@ export default class DonationSelection extends LightningElement {
 
 		this.donationAmt = e.currentTarget.value
 		this.amtIndex = e.currentTarget.name
-		console.log(this.amtIndex);
 	}
 
 	changeOtherDonationAmt(e) {
@@ -283,8 +281,8 @@ export default class DonationSelection extends LightningElement {
 	}
 
 	clickDonateBtn() {
+		console.log('Donate');
 		if (this.validate()) {
-
 			let interval
 			let count;
 			if (this.showFreq) {
@@ -319,16 +317,29 @@ export default class DonationSelection extends LightningElement {
 				count = 1
 			}
 
-			this.givingInterval = {
-				isRecurring: this.showFreq,
+			let givingInterval = {
+				startDate: new Date().toJSON().slice(0, 10),
 				interval: interval,
 				intervalCount: count
 			}
 
-			console.log(this.givingInterval);
+			let donation = {
+				isRecurring: this.showFreq,
+				recurringInterval: givingInterval,
+				isHonoree: this.honor,
+				honoree: this.honoree,
+				amount: Number(this.total)
+			}
 
-			console.log('send to payment processor');
+			let processor = this.template.querySelector('c-payment-processor')
+			processor.donation = donation
+			processor.sendPayment()
+
 		}
+	}
+
+	makePaymentCustomEvent(e) {
+		this.lock = e.detail.lock
 	}
 
 	// # GETTERS/SETTERS
@@ -342,56 +353,56 @@ export default class DonationSelection extends LightningElement {
 
 	get stateOptions() {
 		return [
-			{ label: 'Alabama', value: 'Alabama' },
-			{ label: 'Alaska', value: 'Alaska' },
-			{ label: 'Arizona', value: 'Arizona' },
-			{ label: 'Arkansas', value: 'Arkansas' },
-			{ label: 'California', value: 'California' },
-			{ label: 'Colorado', value: 'Colorado' },
-			{ label: 'Connecticut', value: 'Connecticut' },
-			{ label: 'Delaware', value: 'Delaware' },
-			{ label: 'Florida', value: 'Florida' },
-			{ label: 'Georgia', value: 'Georgia' },
-			{ label: 'Hawaii', value: 'Hawaii' },
-			{ label: 'Idaho', value: 'Idaho' },
-			{ label: 'Illinois', value: 'Illinois' },
-			{ label: 'Indiana', value: 'Indiana' },
-			{ label: 'Iowa', value: 'Iowa' },
-			{ label: 'Kansas', value: 'Kansas' },
-			{ label: 'Kentucky', value: 'Kentucky' },
-			{ label: 'Louisiana', value: 'Louisiana' },
-			{ label: 'Maine', value: 'Maine' },
-			{ label: 'Maryland', value: 'Maryland' },
-			{ label: 'Massachusetts', value: 'Massachusetts' },
-			{ label: 'Michigan', value: 'Michigan' },
-			{ label: 'Minnesota', value: 'Minnesota' },
-			{ label: 'Mississippi', value: 'Mississippi' },
-			{ label: 'Missouri', value: 'Missouri' },
-			{ label: 'Montana', value: 'Montana' },
-			{ label: 'Nebraska', value: 'Nebraska' },
-			{ label: 'Nevada', value: 'Nevada' },
-			{ label: 'New Hampshire', value: 'New Hampshire' },
-			{ label: 'New Jersey', value: 'New Jersey' },
-			{ label: 'New Mexico', value: 'New Mexico' },
-			{ label: 'New York', value: 'New York' },
-			{ label: 'North Carolina', value: 'North Carolina' },
-			{ label: 'North Dakota', value: 'North Dakota' },
-			{ label: 'Ohio', value: 'Ohio' },
-			{ label: 'Oklahoma', value: 'Oklahoma' },
-			{ label: 'Oregon', value: 'Oregon' },
-			{ label: 'Pennsylvania', value: 'Pennsylvania' },
-			{ label: 'Rhode Island', value: 'Rhode Island' },
-			{ label: 'South Carolina', value: 'South Carolina' },
-			{ label: 'South Dakota', value: 'South Dakota' },
-			{ label: 'Tennessee', value: 'Tennessee' },
-			{ label: 'Texas', value: 'Texas' },
-			{ label: 'Utah', value: 'Utah' },
-			{ label: 'Vermont', value: 'Vermont' },
-			{ label: 'Virginia', value: 'Virginia' },
-			{ label: 'Washington', value: 'Washington' },
-			{ label: 'West Virginia', value: 'West Virginia' },
-			{ label: 'Wisconsin', value: 'Wisconsin' },
-			{ label: 'Wyoming', value: 'Wyoming' }
+			{ label: 'AL', value: 'AL' },
+			{ label: 'AK', value: 'AK' },
+			{ label: 'AZ', value: 'AZ' },
+			{ label: 'AR', value: 'AR' },
+			{ label: 'CA', value: 'CA' },
+			{ label: 'CO', value: 'CO' },
+			{ label: 'CT', value: 'CT' },
+			{ label: 'DE', value: 'DE' },
+			{ label: 'FL', value: 'FL' },
+			{ label: 'GA', value: 'GA' },
+			{ label: 'HI', value: 'HI' },
+			{ label: 'ID', value: 'ID' },
+			{ label: 'IL', value: 'IL' },
+			{ label: 'IN', value: 'IN' },
+			{ label: 'IA', value: 'IA' },
+			{ label: 'KS', value: 'KS' },
+			{ label: 'KY', value: 'KY' },
+			{ label: 'LA', value: 'LA' },
+			{ label: 'ME', value: 'ME' },
+			{ label: 'MD', value: 'MD' },
+			{ label: 'MA', value: 'MA' },
+			{ label: 'MI', value: 'MI' },
+			{ label: 'MN', value: 'MN' },
+			{ label: 'MS', value: 'MS' },
+			{ label: 'MO', value: 'MO' },
+			{ label: 'MT', value: 'MT' },
+			{ label: 'NE', value: 'NE' },
+			{ label: 'NV', value: 'NV' },
+			{ label: 'NH', value: 'NH' },
+			{ label: 'NJ', value: 'NJ' },
+			{ label: 'NM', value: 'NM' },
+			{ label: 'NY', value: 'NY' },
+			{ label: 'NC', value: 'NC' },
+			{ label: 'ND', value: 'ND' },
+			{ label: 'OH', value: 'OH' },
+			{ label: 'OK', value: 'OK' },
+			{ label: 'OR', value: 'OR' },
+			{ label: 'PA', value: 'PA' },
+			{ label: 'RI', value: 'RI' },
+			{ label: 'SC', value: 'SC' },
+			{ label: 'SD', value: 'SD' },
+			{ label: 'TN', value: 'TN' },
+			{ label: 'TX', value: 'TX' },
+			{ label: 'UT', value: 'UT' },
+			{ label: 'VT', value: 'VT' },
+			{ label: 'VI', value: 'VI' },
+			{ label: 'WA', value: 'WA' },
+			{ label: 'WV', value: 'WV' },
+			{ label: 'WI', value: 'WI' },
+			{ label: 'WY', value: 'WY' }
 		]
 	}
 
@@ -400,7 +411,6 @@ export default class DonationSelection extends LightningElement {
 	}
 
 	get typeOnce() {
-		console.log('test');
 		return this.givingType === 'once'
 	}
 
@@ -439,4 +449,9 @@ export default class DonationSelection extends LightningElement {
 	get customHeaderColor() {
 		return 'background-color:' + this.headerColor + ';'
 	}
+
+	get isLoading() {
+		return (this.loading || this.saving)
+	}
+
 }
