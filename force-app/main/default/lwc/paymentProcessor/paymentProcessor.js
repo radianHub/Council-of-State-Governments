@@ -41,7 +41,7 @@ export default class PaymentProcessor extends LightningElement {
 	}
 
 	successfulPayment(processor, json, isDonation) {
-		successfulPayment({ processor: processor, json: json, isDonation: isDonation })
+		successfulPayment({ processor: processor, jsonData: json, isDonation: isDonation })
 			.then((r) => console.log(r))
 			.catch((e) => console.log(e))
 	}
@@ -145,7 +145,7 @@ export default class PaymentProcessor extends LightningElement {
 								this.saving = false;
 							}, 1000);
 
-							this.data.CC = '************' + this.data.CC.slice(-4);
+							this.data.cc = '************' + this.data.cc.slice(-4);
 							this.data = {
 								...this.data,
 								customerProfileId: r.profile.customerProfileId,
@@ -153,7 +153,7 @@ export default class PaymentProcessor extends LightningElement {
 								subscriptionId: r.subscriptionId,
 							};
 
-							const { CVC, apiId, apiKey, url, ...rest } = this.data;
+							const { cvc, apiId, apiKey, url, ...rest } = this.data;
 							console.log(rest);
 
 							// TODO: SEND REST TO APEX CONTROLLER
@@ -182,7 +182,7 @@ export default class PaymentProcessor extends LightningElement {
 						.then((r) => {
 							this.showToast(
 								'Success',
-								r.transactionResponse.messages[0].description,
+								'Your payment has been accepted, thank you for your donation!',
 								'success',
 								'sticky'
 							);
@@ -190,7 +190,7 @@ export default class PaymentProcessor extends LightningElement {
 								this.saving = false;
 							}, 1000);
 
-							this.data.CC = '************' + this.data.CC.slice(-4);
+							this.data.cc = '************' + this.data.cc.slice(-4);
 							this.data = {
 								...this.data,
 								transId: r.transactionResponse.transId,
@@ -199,14 +199,14 @@ export default class PaymentProcessor extends LightningElement {
 								cvvVerification: r.transactionResponse.cvvResultCode,
 							};
 
-							const { CVC, apiId, apiKey, url, ...rest } = this.data;
-							console.log(rest);
+							const { cvc, apiId, apiKey, url, ...rest } = this.data;
+							console.log(JSON.parse(JSON.stringify(rest)));
 
-							// this.successfulPayment(
-							// 	'Auth.net',	
-							// 	JSON.stringify(rest),
-                            //     true
-							// );
+							this.successfulPayment(
+								'Auth.net',	
+								JSON.stringify(rest),
+                                true
+							);
 						})
 						.catch((e) => {
 							this.showToast('Error', e.message, 'error');
@@ -226,7 +226,6 @@ export default class PaymentProcessor extends LightningElement {
 
 				// * INVOICE PAYMENT
 			} else {
-				console.log('Data2::', this.data);
 				this.data = {
 					...this.data,
 					company: this.data.detail.name,
@@ -242,12 +241,12 @@ export default class PaymentProcessor extends LightningElement {
 				this.authNet
 					.makeOneTimePayment(this.data.url, payload)
 					.then((r) => {
-						this.showToast('Success', r.transactionResponse.messages[0].description, 'success', 'sticky');
+						this.showToast('Success', 'Your payment has been accepted, thank you!', 'success', 'sticky');
 						setTimeout(() => {
 							this.saving = false;
 						}, 1000);
 
-						this.data.CC = '************' + this.data.CC.slice(-4);
+						this.data.cc = '************' + this.data.cc.slice(-4);
 						this.data = {
 							...this.data,
 							transId: r.transactionResponse.transId,
@@ -256,10 +255,10 @@ export default class PaymentProcessor extends LightningElement {
 							cvvVerification: r.transactionResponse.cvvResultCode,
 						};
 
-						const { CVC, apiId, apiKey, url, ...rest } = this.data;
-						console.log(rest);
+						console.log(JSON.parse(JSON.stringify(this.data)));
+						const { cvc, apiId, apiKey, url, ...rest } = this.data;
 
-						this.successfulInvoice(
+						this.successfulPayment(
 							'Auth.net',
 							JSON.stringify(rest),
                             false

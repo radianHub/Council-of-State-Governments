@@ -23,7 +23,12 @@ public with sharing class PaymentProcessorController {
         try {
             if (processor == 'Auth.net') {
                 AuthNetResponse data = AuthNetResponse.parseJSON(jsonData);
-                System.debug(data);
+                Map<String, Object> respMap = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(data));
+                for(String key : respMap.keySet()) {
+                    System.debug(key);
+                    System.debug(respMap.get(key));
+                }
+
     
                 Contact payee = new Contact(
                     FirstName = data.detail.firstName,
@@ -33,8 +38,8 @@ public with sharing class PaymentProcessorController {
                     MailingStreet = data.detail.street,
                     MailingCity = data.detail.city,
                     MailingState = data.detail.state,
-                    MailingPostalCode = data.detail.zip
-                    // Id = contactId
+                    MailingPostalCode = data.detail.zip,
+                    Id = data.detail.contactId
                 );
                 upsert payee;
     
@@ -97,6 +102,17 @@ public with sharing class PaymentProcessorController {
     }
 
     static void invoicePayment(String processor, String jsonData) {
-        System.debug('Invoice Payment');
+        try {
+            if (processor == 'Auth.net') {
+                AuthNetResponse data = AuthNetResponse.parseJSON(jsonData);
+                Map<String, Object> respMap = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(data));
+                for(String key : respMap.keySet()) {
+                    System.debug(key);
+                    System.debug(respMap.get(key));
+                } 
+            }
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
     }
 }

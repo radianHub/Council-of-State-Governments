@@ -30,13 +30,13 @@ export default class InvoicePayment extends LightningElement {
 	@wire(getInvoice, { id: '$invoiceId' })
 	wiredInvoice({ error, data }) {
 		if (data) {
-			this.data.lineItems = data.lineItems.map((e) => {
-				e.amount = this.toUsdCurrency(e.amount);
+			this.data = JSON.parse(JSON.stringify(data));
+			this.data.lineItems = this.data.lineItems.map((e) => {
+				e.formattedAmount = this.toUsdCurrency(e.amount);
 				return e;
 			});
 			this.data.invoiceId = this.invoiceId;
 			
-			this.data = JSON.parse(JSON.stringify(this.data));
 			console.log('Data::', this.data);
 			setTimeout(() => {
 				this.loading = false;
@@ -70,8 +70,6 @@ export default class InvoicePayment extends LightningElement {
 	}
 
 	clickPayBtn() {
-		console.log('Data::', this.data);
-
 		let processor = this.template.querySelector('c-payment-processor');
 		processor.invoice = this.data;
 		processor.sendPayment();

@@ -3,25 +3,25 @@ export class authNet {
     generateOneTimePayload(obj) {
         let payment = {
             creditCard: {
-                cardNumber: obj.CC.split('-').join(''),
-                expirationDate: obj.Exp.split(' / ').reverse().join('-'),
-                cardCode: obj.CVC
+                cardNumber: obj.cc.split('-').join(''),
+                expirationDate: obj.exp.split(' / ').reverse().join('-'),
+                cardCode: obj.cvc
             }
         }
         let billTo = {
-            firstName: obj.FirstName,
-            lastName: obj.LastName,
-            company: obj.Company,
-            address: obj.Street,
-            city: obj.City,
-            state: obj.State,
-            zip: obj.Zip,
+            firstName: obj.firstName,
+            lastName: obj.lastName,
+            company: obj.company,
+            address: obj.street,
+            city: obj.city,
+            state: obj.state,
+            zip: obj.zip,
             country: 'US',
-            phoneNumber: obj.Phone
+            phoneNumber: obj.phone
         }
         let customer = {
             type: 'individual',
-            email: obj.Email
+            email: obj.email
         }
         let auth = {
             name: obj.apiId,

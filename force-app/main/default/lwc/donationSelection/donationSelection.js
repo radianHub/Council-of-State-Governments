@@ -96,6 +96,7 @@ export default class DonationSelection extends LightningElement {
 		if (data) {
 			this.data = {
 				campaignId: this.campaignId,
+				contactId: data.Id,
 				firstName: data.FirstName,
 				lastName: data.LastName,
 				company: data.Account.Name,

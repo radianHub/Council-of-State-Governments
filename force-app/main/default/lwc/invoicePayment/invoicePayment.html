@@ -20,7 +20,7 @@
                         <div class="billSection">
                             <div>
                                 <div class="billTo">
-                                    <p>{data.name}</p>
+                                    <p>{data.company}</p>
                                     <p>{data.email}</p>
                                     <p>{data.phone}</p>
                                     <p>{data.billTo.street}</p>
@@ -41,7 +41,7 @@
                                 <div key={item.name} class="row">
                                     <div>{item.name}</div>
                                     <div>{item.description}</div>
-                                    <div>{item.amount}</div>
+                                    <div>{item.formattedAmount}</div>
                                 </div>
                             </template>
                             <div class="row">
@@ -58,6 +58,7 @@
                     <div lwc:else class="processor">
                         <c-payment-processor
                             payment-type="invoice"
+                            invoice={data}
                             onmakepayment={makePaymentCustomEvent}>
                         </c-payment-processor>
                     </div>

@@ -20,17 +20,22 @@ public with sharing class AuthNetResponse {
         public Interval recurringInterval;
         public Boolean isHonoree;
         public Honoree honoree;
-        public Decimal amount;
-        public String contactId;
+        public String campaignId;
+        public String contactId;    
+        public String invoiceId;
         public String firstName;
         public String lastName;
         public String company;
+        public String email;
+        public String phone;
         public String street;
         public String city;
         public String state;
         public String zip;
-        public String email;
-        public String phone;
+        public Address billTo;
+        public Address shipTo;
+        public Decimal amount;
+        public LineItem[] lineItems;
     }
 
     public class Interval {
@@ -50,4 +55,17 @@ public with sharing class AuthNetResponse {
         public String Phone;
     }
 
+    public class Address {
+        public String street;
+        public String city;
+        public String state;
+        public String zip;
+    }
+
+    public class LineItem {
+        public String name;
+        public String description;
+        public Decimal amount;
+        public String formattedAmount;
+    }
 }

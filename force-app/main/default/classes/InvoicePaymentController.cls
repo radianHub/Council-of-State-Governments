@@ -69,7 +69,7 @@ public with sharing class InvoicePaymentController {
 
     public class InvoiceWrapper {
         @AuraEnabled
-        public String name;
+        public String company;
         @AuraEnabled
         public String phone;
         @AuraEnabled
@@ -88,7 +88,7 @@ public with sharing class InvoicePaymentController {
         public LineItem[] lineItems;
 
         InvoiceWrapper(
-            String name,
+            String company,
             String phone,
             String email,
             Address billTo,
@@ -98,7 +98,7 @@ public with sharing class InvoicePaymentController {
             Decimal amount,
             LineItem[] lineItems
         ) {
-            this.name = name;
+            this.company = company;
             this.phone = phone;
             this.email = email;
             this.billTo = billTo;
