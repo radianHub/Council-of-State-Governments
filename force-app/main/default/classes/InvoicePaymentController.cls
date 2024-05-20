@@ -8,6 +8,7 @@ public with sharing class InvoicePaymentController {
                 Customer__c,
                 Customer__r.Name,
                 Customer__r.Phone,
+                Customer__r.Billing_Email__c,
                 Customer__r.BillingStreet,
                 Customer__r.BillingCity,
                 Customer__r.BillingState,
@@ -43,6 +44,7 @@ public with sharing class InvoicePaymentController {
         InvoiceWrapper wrap =  new InvoiceWrapper(
             inv.Customer__r.Name,
             inv.Customer__r.Phone,
+            inv.Customer__r.Billing_Email__c,
             new Address(
                 inv.Customer__r.BillingStreet,
                 inv.Customer__r.BillingCity,
@@ -71,6 +73,8 @@ public with sharing class InvoicePaymentController {
         @AuraEnabled
         public String phone;
         @AuraEnabled
+        public String email;
+        @AuraEnabled
         public Address billTo;
         @AuraEnabled
         public Address shipTo;
@@ -86,6 +90,7 @@ public with sharing class InvoicePaymentController {
         InvoiceWrapper(
             String name,
             String phone,
+            String email,
             Address billTo,
             Address shipTo,
             Date invdate,
@@ -95,6 +100,7 @@ public with sharing class InvoicePaymentController {
         ) {
             this.name = name;
             this.phone = phone;
+            this.email = email;
             this.billTo = billTo;
             this.shipTo = shipTo;
             this.invDate = invDate;

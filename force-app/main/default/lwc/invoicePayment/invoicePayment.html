@@ -1,3 +1,91 @@
 <template>
-    <h1>invoicePayment</h1>
+	<lightning-layout horizontal-align="center">
+		<lightning-layout-item>
+            <div class="container">
+                <div class="headerLogo">
+                    <img src={csgLogo}></img>
+                    <p>Dues Invoice</p>
+                </div>
+                <div
+                    lwc:if={isLoading}
+                    style="height: 200px; position: relative">
+                    <lightning-spinner
+                        alternative-text="Loading"
+                        size="medium"
+                        variant="brand">
+                    </lightning-spinner>
+                </div>
+                <div lwc:else class="body">
+                    <div lwc:if={showInvoice}>
+                        <div class="billSection">
+                            <div>
+                                <div class="billTo">
+                                    <p>{data.name}</p>
+                                    <p>{data.email}</p>
+                                    <p>{data.phone}</p>
+                                    <p>{data.billTo.street}</p>
+                                    <p>{formattedAddress}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="invNumber">
+                                    <p>Inv Number</p>
+                                    <p>{data.invNumber}</p>
+                                    <p>Date</p>
+                                    <p>{data.invDate}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lineItems">
+                            <template for:each={data.lineItems} for:item="item" for:index="i">
+                                <div key={item.name} class="row">
+                                    <div>{item.name}</div>
+                                    <div>{item.description}</div>
+                                    <div>{item.amount}</div>
+                                </div>
+                            </template>
+                            <div class="row">
+                                <div>Service Fee</div>
+                                <div>A 4% service fee is added to all credit card payments</div>
+                                <div>{serviceFee}</div>
+                            </div>
+                        </div>
+                        <div class="total">
+                            <div>Total:</div>
+                            <div>{total}</div>
+                        </div>
+                    </div>
+                    <div lwc:else class="processor">
+                        <c-payment-processor
+                            payment-type="invoice"
+                            onmakepayment={makePaymentCustomEvent}>
+                        </c-payment-processor>
+                    </div>
+                    <div class="btns">
+                        <template lwc:if={showInvoice}>
+							<lightning-button
+								variant="brand"
+								label="Payment Details"
+								title="paymentBtn"
+								icon-name="utility:forward"
+								icon-position="right"
+								onclick={clickPaymentDetailsBtn}>
+							</lightning-button>
+						</template>
+						<template lwc:else>
+							<lightning-button
+								variant="brand"
+								label="Pay Now"
+								title="pay"
+								icon-name="utility:currency"
+								icon-position="right"
+								disabled={lock}
+								onclick={clickPayBtn}>
+							</lightning-button>
+						</template>
+                    </div>
+                </div>
+            </div>
+		</lightning-layout-item>
+	</lightning-layout>
 </template>

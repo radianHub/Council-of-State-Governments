@@ -1,51 +1,22 @@
 <template>
-	<template lwc:if={isLoading}>
-		<lightning-spinner 
-			alternative-text="Loading" 
+	<div lwc:if={isLoading} style="height:400px; position:relative;">
+		<lightning-spinner
+			alternative-text="Loading"
 			size="small"
-			variant="brand"
-		></lightning-spinner>
-	</template>
-	<template lwc:else>	
+			variant="brand">
+		</lightning-spinner>
+	</div>
+	<div lwc:else>	
 		<lightning-layout>	
 			<lightning-layout-item>
 					<div class="container">
 						<div class="items">
 							<div class="donorInfo">
-								<div class="donorCol">
-									<lightning-input
-										type="text"
-										name="FirstName"
-										label="First Name"
-										value={data.FirstName}
-										required
-										disabled={paymentLock}
-										onchange={changeDataInput}>
-									</lightning-input>
-									<lightning-input
-										type="text"
-										name="LastName"
-										label="Last Name"
-										value={data.LastName}
-										required
-										disabled={paymentLock}
-										onchange={changeDataInput}>
-									</lightning-input>
-								</div>
 								<lightning-input
 									type="text"
-									name="Company"
-									label="Company"
-									value={data.Company}
-									required
-									disabled={paymentLock}
-									onchange={changeDataInput}>
-								</lightning-input>
-								<lightning-input
-									type="text"
-									name="CC"
+									name="cc"
 									label="Card Number"
-									value={data.CC}
+									value={data.cc}
 									required
 									disabled={paymentLock}
 									onfocusout={focusOutCCInput}
@@ -55,94 +26,126 @@
 								<div class="donorCol">
 									<lightning-input
 										type="text"
-										name="Exp"
+										name="exp"
 										label="Exp"
-										value={data.Exp}
-										pattern="[0-9]{2}/[0-9]{4}"
+										value={data.exp}
+										pattern="[0-9]{2}\s/\s[0-9]{4}"
 										message-when-pattern-mismatch="Please provide a two digit month and four digit year"
-										placeholder="MM/YYYY"
+										placeholder="MM / YYYY"
 										required
 										disabled={paymentLock}
 										onchange={changeDataInput}>
 									</lightning-input>
 									<lightning-input
 										type="text"
-										name="CVC"
+										name="cvc"
 										label="CVC"
-										value={data.CVC}
+										value={data.cvc}
 										max-length="4"
 										required
 										disabled={paymentLock}
 										onchange={changeDataInput}>
 									</lightning-input>
 								</div>
-								<lightning-input
-									type="text"
-									name="Street"
-									label="Address"
-									value={data.Street}
-									required
-									disabled={paymentLock}
-									onchange={changeDataInput}>
-								</lightning-input>
-								<lightning-input
-									type="text"
-									name="City"
-									label="City"
-									value={data.City}
-									required
-									disabled={paymentLock}
-									onchange={changeDataInput}>
-								</lightning-input>
-								<div class="donorCol">
-									<lightning-combobox
-										name="State"
-										label="State"
-										value={data.State}
-										options={stateOptions}
-										required
-										disabled={paymentLock}
-										onchange={changeDataInput}>
-									</lightning-combobox>
+								<template lwc:if={isDonation}>
+									<div class="donorCol">
+										<lightning-input
+											type="text"
+											name="firstName"
+											label="First Name"
+											value={data.detail.firstName}
+											required
+											disabled={paymentLock}
+											onchange={changeDataInput}>
+										</lightning-input>
+										<lightning-input
+											type="text"
+											name="lastName"
+											label="Last Name"
+											value={data.detail.lastName}
+											required
+											disabled={paymentLock}
+											onchange={changeDataInput}>
+										</lightning-input>
+									</div>
 									<lightning-input
 										type="text"
-										name="Zip"
-										label="Zip Code"
-										value={data.Zip}
-										pattern="[0-9]{5}(?:[\-\s][0-9]{4})?"
-										message-when-pattern-mismatch="Please provide a valid zip code. XXXXX or XXXXX-XXXX"
-										max-length="10"
+										name="company"
+										label="Company"
+										value={data.detail.company}
 										required
 										disabled={paymentLock}
 										onchange={changeDataInput}>
 									</lightning-input>
-								</div>
-								<lightning-input
-									type="email"
-									name="Email"
-									label="Email Address"
-									value={data.Email}
-									placeholder="example@domain.com"
-									required
-									disabled={paymentLock}
-									onchange={changeDataInput}>
-								</lightning-input>
-								<lightning-input
-									type="tel"
-									name="Phone"
-									label="Phone Number"
-									value={data.Phone}
-									placeholder="XXX-XXX-XXXX"
-									pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}$"
-									message-when-pattern-mismatch="Please provide a valid phone number."
-									required
-									disabled={paymentLock}
-									onchange={changeDataInput}>
-								</lightning-input>
+									<lightning-input
+										type="text"
+										name="street"
+										label="Address"
+										value={data.detail.street}
+										required
+										disabled={paymentLock}
+										onchange={changeDataInput}>
+									</lightning-input>
+									<lightning-input
+										type="text"
+										name="city"
+										label="City"
+										value={data.detail.city}
+										required
+										disabled={paymentLock}
+										onchange={changeDataInput}>
+									</lightning-input>
+									<div class="donorCol">
+										<lightning-combobox
+											style="width:8em"
+											name="state"
+											label="State"
+											value={data.detail.state}
+											options={stateOptions}
+											required
+											disabled={paymentLock}
+											onchange={changeDataInput}>
+										</lightning-combobox>
+										<lightning-input
+											type="text"
+											name="zip"
+											label="Zip Code"
+											value={data.detail.zip}
+											pattern="[0-9]{5}(?:[\-\s][0-9]{4})?"
+											message-when-pattern-mismatch="Please provide a valid zip code. XXXXX or XXXXX-XXXX"
+											max-length="10"
+											required
+											disabled={paymentLock}
+											onchange={changeDataInput}>
+										</lightning-input>
+									</div>
+									<lightning-input
+										type="email"
+										name="email"
+										label="Email Address"
+										value={data.detail.email}
+										placeholder="example@domain.com"
+										required
+										disabled={paymentLock}
+										onchange={changeDataInput}>
+									</lightning-input>
+									<lightning-input
+										type="tel"
+										name="phone"
+										label="Phone Number"
+										value={data.detail.phone}
+										placeholder="XXX-XXX-XXXX"
+										pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}$"
+										message-when-pattern-mismatch="Please provide a valid phone number."
+										required
+										disabled={paymentLock}
+										onchange={changeDataInput}>
+									</lightning-input>
+								</template>
 							</div>
 						</div>  
 					</div>
 			</lightning-layout-item>
 		</lightning-layout>
-	</template>
+	</div>
 </template>

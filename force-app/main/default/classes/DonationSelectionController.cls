@@ -22,4 +22,26 @@ public with sharing class DonationSelectionController {
     public static Processing_Fee__c getProcessingFee(){
         return Processing_Fee__c.getOrgDefaults();
     }
+
+    @AuraEnabled(cacheable=true)
+    public static Contact getUserContact(String id) {
+        User u = [SELECT ContactId FROM User WHERE Id = :id];
+        return [
+            SELECT
+                Id, 
+                FirstName,
+                LastName, 
+                Account.Name, 
+                Phone, 
+                Email, 
+                MailingStreet,
+                MailingCity, 
+                MailingState, 
+                MailingPostalCode
+            FROM
+                Contact
+            WHERE 
+                Id = :u.ContactId 
+        ];
+    }
 }

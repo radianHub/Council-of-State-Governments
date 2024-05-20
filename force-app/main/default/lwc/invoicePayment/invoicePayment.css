@@ -1,1 +1,99 @@
-h1 {}
+.container {
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0em 0em 0.5em 0px black;
+}
+
+.container > div {
+    padding: 2em;
+}
+
+.headerLogo {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.headerLogo img {
+    height: 62px;
+}
+
+.headerLogo p {
+    font-size: xx-large;
+    text-align: end;
+}
+
+.billSection {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid #0055B8;
+    padding: 0px 15px 5px 15px;
+}
+
+.invNumber > p:nth-child(odd) {
+    font-weight: bold;
+}
+
+.invNumber {
+    display: grid;
+    justify-items: end;
+}
+
+@media only screen and (min-width: 768px) {
+    .invNumber {
+        display: grid;
+        column-gap: 15px;
+        grid-template-columns: 7em 7em;
+        justify-items: end;    
+    }
+}
+
+.lineItems {
+    padding: 5px;
+    border-bottom: 3px solid #0055B8;
+}
+
+.lineItems > .row {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+    column-gap: 15px;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.lineItems > .row:nth-child(even) {
+    background-color: rgb(0, 85, 184, 0.05);
+}
+
+.row > div:nth-child(3n) {
+    text-align: end;
+}
+
+.row > div:nth-child(2n) {
+    word-wrap: break-word;
+}
+
+.total {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    padding: 15px 10px;
+    font-size: large
+}
+
+.processor {
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid #0055B8;
+    border-bottom: 3px solid #0055B8;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 15px 0;
+}

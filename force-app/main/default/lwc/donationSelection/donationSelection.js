@@ -1,13 +1,17 @@
+/* eslint-disable @lwc/lwc/no-async-operation */
 import { LightningElement, api, wire } from "lwc";
 import { CurrentPageReference } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import userId from '@salesforce/user/Id';
 
 import getDonationAmounts from '@salesforce/apex/DonationSelectionController.getDonationAmounts';
 import getProcessingFee from '@salesforce/apex/DonationSelectionController.getProcessingFee';
+import getUserContact from '@salesforce/apex/DonationSelectionController.getUserContact';
 
 export default class DonationSelection extends LightningElement {
 	@api headerColor;
 	@api headerTextColor;
+	data;
 	campaignId;
 	processingFee;
 	donationAmounts;	
@@ -23,6 +27,7 @@ export default class DonationSelection extends LightningElement {
 	addFee = false;
 	changeAmt = false;
 	donationSelection = true;
+
 	lock = false;
 	loading = true;
 	saving = false;
@@ -30,6 +35,7 @@ export default class DonationSelection extends LightningElement {
 	// # LIFECYCLE HOOKS
 	
 	connectedCallback() {
+		this.campaignId = this.currentPageReference.state.c__campaign
 		this.getProcessingFee()
 		this.getDonationAmounts()
 	}
@@ -77,13 +83,35 @@ export default class DonationSelection extends LightningElement {
 			this.changeAmt = false
 		}
 
-		this.loading = false;
+		setTimeout(() => {this.loading = false}, 1000)
 	}
 
 	// # APEX
 
 	@wire(CurrentPageReference)
 	currentPageReference;
+
+	@wire(getUserContact, { id: '005VG0000053WzlYAE' }) // REPLACE WITH userId
+	wiredContact({ data, error }) {
+		if (data) {
+			this.data = {
+				campaignId: this.campaignId,
+				firstName: data.FirstName,
+				lastName: data.LastName,
+				company: data.Account.Name,
+				phone: data.Phone,
+				email: data.Email,
+				street: data.MailingStreet,
+				city: data.MailingCity,
+				state: data.MailingState,
+				zip: data.MailingPostalCode
+			};
+
+			this.data = JSON.parse(JSON.stringify(this.data))
+		} else {
+			console.log(error);
+		}
+	}
 
 	getProcessingFee() {
 		getProcessingFee()
@@ -270,19 +298,6 @@ export default class DonationSelection extends LightningElement {
 		} else if (!this.validate()) {
 			this.showToast('Error', 'You must provide the required information.', 'error')
 		} else if (this.validate) {
-			this.changeAmt = false;
-			this.donationSelection = false;	
-		}	
-	}
-
-	clickBackBtn() {
-		this.donationSelection = true;
-		this.changeAmt = true;
-	}
-
-	clickDonateBtn() {
-		console.log('Donate');
-		if (this.validate()) {
 			let interval
 			let count;
 			if (this.showFreq) {
@@ -323,7 +338,8 @@ export default class DonationSelection extends LightningElement {
 				intervalCount: count
 			}
 
-			let donation = {
+			this.data = {
+				...this.data,
 				isRecurring: this.showFreq,
 				recurringInterval: givingInterval,
 				isHonoree: this.honor,
@@ -331,10 +347,23 @@ export default class DonationSelection extends LightningElement {
 				amount: Number(this.total)
 			}
 
-			let processor = this.template.querySelector('c-payment-processor')
-			processor.donation = donation
-			processor.sendPayment()
+			console.log('DATA::', this.data);
 
+			this.changeAmt = false;
+			this.donationSelection = false;
+		}	
+	}
+
+	clickBackBtn() {
+		this.donationSelection = true;
+		this.changeAmt = true;
+	}
+
+	clickDonateBtn() {
+		console.log('Donate');
+		if (this.validate()) {
+			let processor = this.template.querySelector('c-payment-processor')
+			processor.sendPayment()
 		}
 	}
 

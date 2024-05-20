@@ -4,14 +4,14 @@ export class authNet {
         let payment = {
             creditCard: {
                 cardNumber: obj.CC.split('-').join(''),
-                expirationDate: obj.Exp.split('/').reverse().join('-'),
+                expirationDate: obj.Exp.split(' / ').reverse().join('-'),
                 cardCode: obj.CVC
             }
         }
         let billTo = {
             firstName: obj.FirstName,
             lastName: obj.LastName,
-            company: null,
+            company: obj.Company,
             address: obj.Street,
             city: obj.City,
             state: obj.State,
