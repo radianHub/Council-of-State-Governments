@@ -21,17 +21,17 @@ export default class PaymentProcessor extends LightningElement {
 
 	// # LIFECYCLE HOOKS
 
-    connectedCallback() {
-        this.data.detail = this.paymentType === 'donation' ? this.donation : this.invoice;
+	connectedCallback() {
+		this.data.detail = this.paymentType === 'donation' ? this.donation : this.invoice;
 
-        this.loading = false;
-    }
-    
+		this.loading = false;
+	}
+
 	// # APEX
-    
+
 	@wire(getSettings)
 	wiredSettings({ data, error }) {
-        if (data) {
+		if (data) {
 			this.data.apiId = data.API_Login_Id__c;
 			this.data.apiKey = data.API_Key__c;
 			this.data.url = data.Test_Mode__c ? data.Sandbox_Endpoint__c : data.Production_Endpoint__c;
@@ -43,7 +43,7 @@ export default class PaymentProcessor extends LightningElement {
 	successfulPayment(processor, json, isDonation) {
 		successfulPayment({ processor: processor, jsonData: json, isDonation: isDonation })
 			.then((r) => console.log(r))
-			.catch((e) => console.log(e))
+			.catch((e) => console.log(e));
 	}
 
 	// TODO: Configure multiple Payment Processors. Pulled from custom setting or metadata
@@ -84,12 +84,12 @@ export default class PaymentProcessor extends LightningElement {
 		if (e.currentTarget.name === 'exp' && e.currentTarget.value.length === 2 && e.currentTarget.value[1] !== '/') {
 			e.currentTarget.value += ' / ';
 		}
-		
+
 		if (e.currentTarget.name === 'exp' || e.currentTarget.name === 'cvc' || e.currentTarget.name === 'cc') {
 			this.data[e.currentTarget.name] = e.currentTarget.value;
 		} else {
-			this.data.detail = JSON.parse(JSON.stringify(this.data.detail))
-			this.data.detail[e.currentTarget.name] = e.currentTarget.value
+			this.data.detail = JSON.parse(JSON.stringify(this.data.detail));
+			this.data.detail[e.currentTarget.name] = e.currentTarget.value;
 		}
 	}
 
@@ -202,11 +202,7 @@ export default class PaymentProcessor extends LightningElement {
 							const { cvc, apiId, apiKey, url, ...rest } = this.data;
 							console.log(JSON.parse(JSON.stringify(rest)));
 
-							this.successfulPayment(
-								'Auth.net',	
-								JSON.stringify(rest),
-                                true
-							);
+							this.successfulPayment('Auth.net', JSON.stringify(rest), true);
 						})
 						.catch((e) => {
 							this.showToast('Error', e.message, 'error');
@@ -258,11 +254,7 @@ export default class PaymentProcessor extends LightningElement {
 						console.log(JSON.parse(JSON.stringify(this.data)));
 						const { cvc, apiId, apiKey, url, ...rest } = this.data;
 
-						this.successfulPayment(
-							'Auth.net',
-							JSON.stringify(rest),
-                            false
-						);
+						this.successfulPayment('Auth.net', JSON.stringify(rest), false);
 					})
 					.catch((e) => {
 						this.showToast('Error', e.message, 'error');
