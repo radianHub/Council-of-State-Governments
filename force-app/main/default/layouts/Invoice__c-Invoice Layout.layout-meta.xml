@@ -19,6 +19,10 @@
                 <behavior>Edit</behavior>
                 <field>Customer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>State__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -130,6 +134,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Date__c</fields>
+        <fields>Amount__c</fields>
         <relatedList>Invoice_Payment__c.Invoice__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

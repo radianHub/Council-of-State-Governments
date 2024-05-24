@@ -16,19 +16,29 @@
                 <label>Cash</label>
             </value>
             <value>
-                <fullName>Check</fullName>
+                <fullName>Printed Check</fullName>
                 <default>false</default>
-                <label>Check</label>
+                <label>Printed Check</label>
             </value>
             <value>
-                <fullName>ACH</fullName>
+                <fullName>EFT</fullName>
                 <default>false</default>
-                <label>ACH</label>
+                <label>EFT</label>
             </value>
             <value>
-                <fullName>Card</fullName>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
-                <label>Card</label>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Online Charge Card</fullName>
+                <default>false</default>
+                <label>Online Charge Card</label>
+            </value>
+            <value>
+                <fullName>Online ACH Debit</fullName>
+                <default>false</default>
+                <label>Online ACH Debit</label>
             </value>
         </valueSetDefinition>
     </valueSet>
