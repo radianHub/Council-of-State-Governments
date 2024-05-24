@@ -108,6 +108,10 @@
                 <behavior>Edit</behavior>
                 <field>ProjectType__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ProjectManager__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -125,6 +129,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Entity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ProjectId__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
