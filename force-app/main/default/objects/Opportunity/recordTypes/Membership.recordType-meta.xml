@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Sponsorship</fullName>
+    <fullName>Membership</fullName>
     <active>true</active>
-    <businessProcess>Sponsorship Process</businessProcess>
-    <label>Sponsorship</label>
+    <businessProcess>Membership Process</businessProcess>
+    <label>Membership</label>
     <picklistValues>
         <picklist>Are_we_similar_to_past_grantees__c</picklist>
         <values>
