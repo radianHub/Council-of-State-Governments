@@ -606,10 +606,10 @@
             <fullName>NASPE</fullName>
             <default>false</default>
         </values>
-        <values>
+        <!-- <values>
             <fullName>NASPTD</fullName>
             <default>false</default>
-        </values>
+        </values> -->
         <values>
             <fullName>NATL</fullName>
             <default>false</default>

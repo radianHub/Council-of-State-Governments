@@ -607,10 +607,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>NASPTD</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>NATL</fullName>
             <default>false</default>
         </values>
