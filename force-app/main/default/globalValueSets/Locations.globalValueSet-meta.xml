@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>10</fullName>
+        <default>false</default>
+        <label>The Council of State Governments</label>
+    </customValue>
+    <customValue>
+        <fullName>AAPCA</fullName>
+        <default>false</default>
+        <label>The Association of Air Pollution Control</label>
+    </customValue>
+    <customValue>
+        <fullName>APPA</fullName>
+        <default>false</default>
+        <label>American Probation and Parole Association</label>
+    </customValue>
+    <customValue>
+        <fullName>CANNRA</fullName>
+        <default>false</default>
+        <label>Cannabis Regulators Association</label>
+    </customValue>
+    <customValue>
+        <fullName>East</fullName>
+        <default>false</default>
+        <label>East Region</label>
+    </customValue>
+    <customValue>
+        <fullName>JC</fullName>
+        <default>false</default>
+        <label>Justice Center</label>
+    </customValue>
+    <customValue>
+        <fullName>MIC3</fullName>
+        <default>false</default>
+        <label>Military Interstate Children&apos;s Compact C</label>
+    </customValue>
+    <customValue>
+        <fullName>Midwest</fullName>
+        <default>false</default>
+        <label>Midwest Region</label>
+    </customValue>
+    <customValue>
+        <fullName>NASFA</fullName>
+        <default>false</default>
+        <label>National Association of ST Facility Adm</label>
+    </customValue>
+    <customValue>
+        <fullName>NASPE</fullName>
+        <default>false</default>
+        <label>National Association of ST Pers Exec</label>
+    </customValue>
+    <customValue>
+        <fullName>NASPTD</fullName>
+        <default>false</default>
+        <label>National Association of ST Tech Director</label>
+    </customValue>
+    <customValue>
+        <fullName>NATL</fullName>
+        <default>false</default>
+        <label>National</label>
+    </customValue>
+    <customValue>
+        <fullName>NATL HQ</fullName>
+        <default>false</default>
+        <label>National Headquarters</label>
+    </customValue>
+    <customValue>
+        <fullName>NEMA</fullName>
+        <default>false</default>
+        <label>National Emergency Mgmt Association</label>
+    </customValue>
+    <customValue>
+        <fullName>NHCSL</fullName>
+        <default>false</default>
+        <label>National Hispanic Caucus of ST Legis</label>
+    </customValue>
+    <customValue>
+        <fullName>SIDO</fullName>
+        <default>false</default>
+        <label>State International Development Orgs</label>
+    </customValue>
+    <customValue>
+        <fullName>South</fullName>
+        <default>false</default>
+        <label>South Region</label>
+    </customValue>
+    <customValue>
+        <fullName>West</fullName>
+        <default>false</default>
+        <label>West Region</label>
+    </customValue>
+    <customValue>
+        <fullName>WIG</fullName>
+        <default>false</default>
+        <label>Women in Government</label>
+    </customValue>
+    <masterLabel>Locations</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
