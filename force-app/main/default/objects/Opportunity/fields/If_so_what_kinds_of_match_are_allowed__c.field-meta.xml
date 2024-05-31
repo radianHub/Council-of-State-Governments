@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Re_ElectionYear__c</fullName>
+    <fullName>If_so_what_kinds_of_match_are_allowed__c</fullName>
     <externalId>false</externalId>
-    <label>Re-Election Year</label>
+    <label>If so, what kinds of match are allowed?</label>
     <length>255</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

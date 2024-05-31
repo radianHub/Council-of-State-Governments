@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Re_ElectionYear__c</fullName>
+    <fullName>What_is_the_award_min_max__c</fullName>
     <externalId>false</externalId>
-    <label>Re-Election Year</label>
+    <label>What is the award min/max?</label>
     <length>255</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
