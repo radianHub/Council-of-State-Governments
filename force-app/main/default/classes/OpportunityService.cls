@@ -1,10 +1,12 @@
 public with sharing class OpportunityService {
     
     public static void syncProject(List<Opportunity> oppList, Map<Id, Opportunity> oldOppMap) {
+        String rtId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Grant' AND SObjectType = 'Opportunity'].Id;
         for (Opportunity opp : oppList) {
             if (opp.StageName == 'Closed Won' & 
                 String.isEmpty(opp.ProjectId__c) & 
-                oldOppMap.get(opp.Id).StageName != opp.StageName) {
+                oldOppMap.get(opp.Id).StageName != opp.StageName &
+                opp.RecordTypeId == rtId) {
                 Account acc = [
                     SELECT Id, Customer_ID__c 
                     FROM Account 
