@@ -1,6 +1,14 @@
 @isTest
 public with sharing class SageIntegrationServiceTest {
 
+    static Mulesoft_Endpoints__c endpoints;
+    static {
+        endpoints = new Mulesoft_Endpoints__c(
+            Sage_API_Proxy__c = 'http://test.com'
+        );
+        insert endpoints;
+    }
+
     static final Map<String, HttpResponse> resStore = new Map<String, HttpResponse>{
         'postSuccess' => HttpResponseFactory.postSuccess(),
         'postFailure' => HttpResponseFactory.postFailure(),
