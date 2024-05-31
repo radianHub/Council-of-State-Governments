@@ -10,3 +10,5 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+force-app/main/default/objects/Invoice_Payment__c/fields/SageRecId__c.field-meta.xml
