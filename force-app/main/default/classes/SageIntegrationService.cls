@@ -1,10 +1,13 @@
 public with sharing class SageIntegrationService {
 
+    public static final Mulesoft_Endpoints__c endpoints = Mulesoft_Endpoints__c.getOrgDefaults();
+
     @future(callout=true)
     public static void postProject(String json) {
+        System.debug(endpoints);
         System.debug(json);
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://sage-api-proxy-zmqsyv.5sc6y6-1.usa-e2.cloudhub.io/project');
+        req.setEndpoint(endpoints.Sage_API_Proxy__c + '/project');
         req.setMethod('POST');
         req.setHeader('Content-Type', 'application/json');
         req.setBody(json);
@@ -20,7 +23,7 @@ public with sharing class SageIntegrationService {
     @future(callout=true)
     public static void getProjects() {
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://sage-api-proxy-zmqsyv.5sc6y6-1.usa-e2.cloudhub.io/project');
+        req.setEndpoint(endpoints.Sage_API_Proxy__c + '/project');
         req.setMethod('GET');
         req.setHeader('Content-Type', 'application/json');
 
@@ -86,7 +89,7 @@ public with sharing class SageIntegrationService {
         System.debug(JSON.serializePretty(payload));
 
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://sage-api-proxy-zmqsyv.5sc6y6-1.usa-e2.cloudhub.io/invoice');
+        req.setEndpoint(endpoints.Sage_API_Proxy__c + '/invoice');
         req.setMethod('POST');
         req.setHeader('Content-Type', 'application/json');
         req.setBody(JSON.serializePretty(payload));
@@ -112,7 +115,7 @@ public with sharing class SageIntegrationService {
         ];
 
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://sage-api-proxy-zmqsyv.5sc6y6-1.usa-e2.cloudhub.io/invoice?lastUpdate=' + mc.LastCalloutDate__c);
+        req.setEndpoint(endpoints.Sage_API_Proxy__c + '/invoice?lastUpdate=' + mc.LastCalloutDate__c);
         req.setMethod('GET');
         req.setHeader('Content-Type', 'application/json');
 
@@ -157,7 +160,7 @@ public with sharing class SageIntegrationService {
         }));
 
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://sage-api-proxy-zmqsyv.5sc6y6-1.usa-e2.cloudhub.io/payment');
+        req.setEndpoint(endpoints.Sage_API_Proxy__c + '/payment');
         req.setMethod('POST');
         req.setHeader('Content-Type', 'application/json');
         req.setBody(JSON.serializePretty(new Map<String, Object>{
