@@ -10,3 +10,9 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+# force-app/main/default/objects/Invoice_Payment__c/fields/SageRecId__c.field-meta.xml
+
+# force-app/main/default/flexipages/Invoice_Payment_Record_Page.flexipage-meta.xml
+
+# force-app/main/default/layouts/Invoice_Payment__c-Invoice Payment Layout.layout-meta.xml

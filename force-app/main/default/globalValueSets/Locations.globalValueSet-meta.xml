@@ -6,34 +6,9 @@
         <label>The Council of State Governments</label>
     </customValue>
     <customValue>
-        <fullName>AAPCA</fullName>
-        <default>false</default>
-        <label>The Association of Air Pollution Control</label>
-    </customValue>
-    <customValue>
-        <fullName>APPA</fullName>
-        <default>false</default>
-        <label>American Probation and Parole Association</label>
-    </customValue>
-    <customValue>
-        <fullName>CANNRA</fullName>
-        <default>false</default>
-        <label>Cannabis Regulators Association</label>
-    </customValue>
-    <customValue>
         <fullName>East</fullName>
         <default>false</default>
         <label>East Region</label>
-    </customValue>
-    <customValue>
-        <fullName>JC</fullName>
-        <default>false</default>
-        <label>Justice Center</label>
-    </customValue>
-    <customValue>
-        <fullName>MIC3</fullName>
-        <default>false</default>
-        <label>Military Interstate Children&apos;s Compact C</label>
     </customValue>
     <customValue>
         <fullName>Midwest</fullName>
@@ -41,44 +16,19 @@
         <label>Midwest Region</label>
     </customValue>
     <customValue>
-        <fullName>NASFA</fullName>
-        <default>false</default>
-        <label>National Association of ST Facility Adm</label>
-    </customValue>
-    <customValue>
-        <fullName>NASPE</fullName>
-        <default>false</default>
-        <label>National Association of ST Pers Exec</label>
-    </customValue>
-    <customValue>
-        <fullName>NASPTD</fullName>
-        <default>false</default>
-        <label>National Association of ST Tech Director</label>
-    </customValue>
-    <customValue>
         <fullName>NATL</fullName>
         <default>false</default>
         <label>National</label>
     </customValue>
     <customValue>
+        <fullName>JC</fullName>
+        <default>false</default>
+        <label>Justice Center</label>
+    </customValue>
+    <customValue>
         <fullName>NATL HQ</fullName>
         <default>false</default>
         <label>National Headquarters</label>
-    </customValue>
-    <customValue>
-        <fullName>NEMA</fullName>
-        <default>false</default>
-        <label>National Emergency Mgmt Association</label>
-    </customValue>
-    <customValue>
-        <fullName>NHCSL</fullName>
-        <default>false</default>
-        <label>National Hispanic Caucus of ST Legis</label>
-    </customValue>
-    <customValue>
-        <fullName>SIDO</fullName>
-        <default>false</default>
-        <label>State International Development Orgs</label>
     </customValue>
     <customValue>
         <fullName>South</fullName>
@@ -89,6 +39,206 @@
         <fullName>West</fullName>
         <default>false</default>
         <label>West Region</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG EAST</fullName>
+        <default>false</default>
+        <label>Eastern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG EAST RESRV</fullName>
+        <default>false</default>
+        <label>ERC Meeting Reserve</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG JC</fullName>
+        <default>false</default>
+        <label>CSG JC Nonrestricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG JC-RESTRICTED</fullName>
+        <default>false</default>
+        <label>CSG JC Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG MIDWEST</fullName>
+        <default>false</default>
+        <label>Midwestern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG MIDWEST RESRV</fullName>
+        <default>false</default>
+        <label>Midwest Reserve Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG SOUTH</fullName>
+        <default>false</default>
+        <label>Southern Region</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG SOUTH RESRV</fullName>
+        <default>false</default>
+        <label>Southern Regional Reserve</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG WEST</fullName>
+        <default>false</default>
+        <label>Western Region</label>
+    </customValue>
+    <customValue>
+        <fullName>10-CSG-RESTRICTED</fullName>
+        <default>false</default>
+        <label>CSG Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>East-Restricted</fullName>
+        <default>false</default>
+        <label>East Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>Midwest-Restricted</fullName>
+        <default>false</default>
+        <label>Midwest Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>NATL-Restricted</fullName>
+        <default>false</default>
+        <label>CSG National Office Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>South-Restricted</fullName>
+        <default>false</default>
+        <label>South Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>West-Restricted</fullName>
+        <default>false</default>
+        <label>West Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-EAST-ERC</fullName>
+        <default>false</default>
+        <label>Eastern Regional Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-EAST-ETC</fullName>
+        <default>false</default>
+        <label>Eastern Trade Council</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-EAST-NESAAS</fullName>
+        <default>false</default>
+        <label>Northeast States Assoc. Ag. Stewardship</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-MIDWEST-BILLD</fullName>
+        <default>false</default>
+        <label>BOWHAY Institute of Legislative Leaders</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-MIDWEST-MLC</fullName>
+        <default>false</default>
+        <label>Midwest Legislative Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-SOUTH-HOST</fullName>
+        <default>false</default>
+        <label>SLC - Host State Accounts</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-SOUTH-SLC</fullName>
+        <default>false</default>
+        <label>Southern Legislative Conference</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-WEST-MEETS</fullName>
+        <default>false</default>
+        <label>CSG West Meetings</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-WEST-RESRV</fullName>
+        <default>false</default>
+        <label>Western Designated Fund</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-WEST-WLA</fullName>
+        <default>false</default>
+        <label>Western Legislative Academy</label>
+    </customValue>
+    <customValue>
+        <fullName>11-CSG-WEST-WLC</fullName>
+        <default>false</default>
+        <label>CSG West</label>
+    </customValue>
+    <customValue>
+        <fullName>AAPCA</fullName>
+        <default>false</default>
+        <label>The Association of Air Pollution Control</label>
+    </customValue>
+    <customValue>
+        <fullName>AAPCA-RESTRICTED</fullName>
+        <default>false</default>
+        <label>AAPCA Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>APPA</fullName>
+        <default>false</default>
+        <label>American Probation and Parole Associatio</label>
+    </customValue>
+    <customValue>
+        <fullName>APPA-RESTRICTED</fullName>
+        <default>false</default>
+        <label>APPA Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>CANNRA</fullName>
+        <default>false</default>
+        <label>Cannabis Regulators Association</label>
+    </customValue>
+    <customValue>
+        <fullName>MIC3</fullName>
+        <default>false</default>
+        <label>Military Interstate Children&apos;s Compact C</label>
+    </customValue>
+    <customValue>
+        <fullName>MIPRC</fullName>
+        <default>false</default>
+        <label>Midwest Interstate Passenger Rail Commis</label>
+    </customValue>
+    <customValue>
+        <fullName>NASFA</fullName>
+        <default>false</default>
+        <label>National Association of ST Facility Adm</label>
+    </customValue>
+    <customValue>
+        <fullName>NASPE</fullName>
+        <default>false</default>
+        <label>Natl Assoc of State Personnel Executives</label>
+    </customValue>
+    <customValue>
+        <fullName>NASTD</fullName>
+        <default>false</default>
+        <label>National Association of ST Tech Director</label>
+    </customValue>
+    <customValue>
+        <fullName>NEMA</fullName>
+        <default>false</default>
+        <label>National Emergency Mgmt Association</label>
+    </customValue>
+    <customValue>
+        <fullName>NEMA-RESTRICTED</fullName>
+        <default>false</default>
+        <label>NEMA Restricted Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>NHCSL</fullName>
+        <default>false</default>
+        <label>National Hispanic Caucus of ST Legis</label>
+    </customValue>
+    <customValue>
+        <fullName>SIDO</fullName>
+        <default>false</default>
+        <label>State International Development Orgs</label>
     </customValue>
     <customValue>
         <fullName>WIG</fullName>
