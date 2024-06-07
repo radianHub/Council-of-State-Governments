@@ -1,3 +1,1 @@
-public interface IFieldProvider {
-	Object getValue();
-}
+public interface IFieldProvider { Object getValue(); }
