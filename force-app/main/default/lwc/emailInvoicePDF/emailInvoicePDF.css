@@ -1,0 +1,9 @@
+lightning-button {
+	--lwc-button__icon-position: relative;
+	--lwc-button__icon-top: -2px;
+}
+
+button.slds-button svg.slds-button__icon {
+	position: relative;
+	top: -20px;
+}
