@@ -5,11 +5,7 @@
 	standardStylesheets="false"
 	applyBodyTag="false"
 	applyHtmlTag="false">
-	<!-- renderAs="pdf" -->
 	<head>
-		<!-- <meta charset="utf-8" /> -->
-		<!-- <title>Invoice PDF Generator</title> -->
-
 		<style>
 			.invoice-box {
 				max-width: 800px;
@@ -183,7 +179,7 @@
 											<td>{!Invoice__c.Invoice_Number__c}</td>
 										</tr>
 										<tr>
-											<td>Created:</td>
+											<td>Invoice Date:</td>
 											<td>
 												<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
 													<apex:param value="{!Invoice__c.Date__c}" />
@@ -191,7 +187,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td>Due:</td>
+											<td>Due Date:</td>
 											<td>
 												<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
 													<apex:param value="{!Invoice__c.Due_Date__c}" />
@@ -258,6 +254,7 @@
 					</td>
 				</tr>
 			</table>
+			<br />
 
 			<!-- # Line Items Table -->
 			<table class="line-items">
