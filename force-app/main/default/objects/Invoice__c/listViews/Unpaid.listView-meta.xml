@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unpaid</fullName>
+    <columns>Due_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>State__c</columns>
+    <columns>Amount_Paid__c</columns>
+    <columns>Amount_Remaining__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Amount_Remaining__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>Unpaid</label>
+</ListView>
