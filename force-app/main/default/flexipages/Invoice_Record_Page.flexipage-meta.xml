@@ -17,6 +17,15 @@
                             </visibilityRule>
                         </valueListItems>
                         <valueListItems>
+                            <value>Invoice__c.Send_Invoice</value>
+                            <visibilityRule>
+                                <criteria>
+                                    <leftValue>{!Record.Invoice_Number__c}</leftValue>
+                                    <operator>NE</operator>
+                                </criteria>
+                            </visibilityRule>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Edit</value>
                         </valueListItems>
                         <valueListItems>
@@ -62,23 +71,14 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
+                    <name>showLegacyActivityComposer</name>
+                    <value>false</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListContainer</componentName>
-                <identifier>force_relatedListContainer</identifier>
+                <componentName>runtime_sales_activities:activityPanel</componentName>
+                <identifier>runtime_sales_activities_activityPanel</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
-        <name>relatedTabContent</name>
+        <name>Facet-f475610d-208b-4737-800b-0bc6807226a5</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -97,14 +97,14 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>relatedTabContent</value>
+                    <value>Facet-f475610d-208b-4737-800b-0bc6807226a5</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Standard.Tab.relatedLists</value>
+                    <value>Standard.Tab.activity</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
-                <identifier>relatedListsTab</identifier>
+                <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -148,15 +148,22 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>showLegacyActivityComposer</name>
-                    <value>false</value>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
                 </componentInstanceProperties>
-                <componentName>runtime_sales_activities:activityPanel</componentName>
-                <identifier>runtime_sales_activities_activityPanel</identifier>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListContainer</componentName>
+                <identifier>force_relatedListContainer</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
-        <name>activityTabContent</name>
+        <name>Facet-bcf7ebad-4892-4b27-ab3c-38f14500eded</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -168,18 +175,17 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>activityTabContent</value>
+                    <value>Facet-bcf7ebad-4892-4b27-ab3c-38f14500eded</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Standard.Tab.activity</value>
+                    <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
-                <identifier>activityTab</identifier>
+                <identifier>flexipage_tab2</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
-        <name>sidebartabs</name>
+        <name>Facet-bc9d190e-921e-4ecb-b877-668aa4112bf2</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -187,7 +193,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>tabs</name>
-                    <value>sidebartabs</value>
+                    <value>Facet-bc9d190e-921e-4ecb-b877-668aa4112bf2</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
                 <identifier>flexipage_tabset2</identifier>
