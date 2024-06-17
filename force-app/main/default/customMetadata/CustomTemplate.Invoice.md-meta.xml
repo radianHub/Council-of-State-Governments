@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Invoice</label>
+    <protected>false</protected>
+    <values>
+        <field>Text__c</field>
+        <value xsi:type="xsd:string">&lt;p&gt;Dear {!Contact.Name},&lt;/p&gt;
+
+&lt;p&gt;Thank you for your support of The Council of State Governments, or CSG.&lt;/p&gt;
+
+&lt;p&gt;Please find enclosed invoice #{!Invoice__c.Invoice_Number__c} due {!Invoice__c.Due_Date__c} and CSG W-9. If you need any additional information to facilitate the processing of your payment, including assistance with EFT/ACH information or any changes to your invoice, please let me know.&lt;/p&gt;
+
+&lt;p&gt;We greatly appreciate your partnership and look forward to future collaborations.&lt;/p&gt;
+
+&lt;p&gt;Best,&lt;/p&gt;
+
+&lt;p&gt;{!User.Name}&lt;/p&gt;</value>
+    </values>
+</CustomMetadata>
