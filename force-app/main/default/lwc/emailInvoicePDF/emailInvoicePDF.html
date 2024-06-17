@@ -1,0 +1,72 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<lightning-quick-action-panel header="Send Invoice">
+		<template lwc:if={isLoading}>
+			<lightning-spinner
+				alternative-text="Loading"
+				size="medium"
+				variant="base"
+				class="slds-is-relative"></lightning-spinner>
+		</template>
+		<template lwc:else>
+			<template lwc:if={error}>
+				<c-error-panel
+					errors={error}
+					show-toast="true"></c-error-panel>
+			</template>
+			<div class="slds-p-top_medium slds-p-bottom_medium">
+				<lightning-input
+					type="text"
+					label="Recipient"
+					value={emailRecipients}
+					disabled></lightning-input>
+				<lightning-input
+					type="text"
+					label="Subject"
+					value={subject}
+					onchange={handleChangeSubject}></lightning-input>
+			</div>
+			<div>
+				<lightning-input-rich-text
+					value={emailBody}
+					onchange={handleChangeBody}>
+				</lightning-input-rich-text>
+			</div>
+			<!-- <template if:false={hasErrors}>
+				<template if:false={hasPDF}>
+					<p>There is no PDF to display.</p>
+				</template>
+			</template> -->
+		</template>
+		<div slot="footer">
+			<lightning-layout>
+				<lightning-layout-item padding="horizontal-small">
+					<lightning-button
+						class="fixIcon"
+						label="Preview Invoice PDF"
+						onclick={previewPDF}
+						icon-name="utility:new_window"
+						icon-position="right"
+						variant="brand-outline"
+						disabled={isLoading}></lightning-button>
+				</lightning-layout-item>
+				<lightning-layout-item
+					padding="horizontal-small"
+					alignment-bump="left">
+					<lightning-button
+						label="Cancel"
+						onclick={handleClose}
+						variant="destructive"
+						disabled={isLoading}></lightning-button>
+				</lightning-layout-item>
+				<lightning-layout-item padding="horizontal-small">
+					<lightning-button
+						label="Send Email"
+						onclick={handleSendEmail}
+						variant="brand"
+						disabled={isEmailSent}></lightning-button
+				></lightning-layout-item>
+			</lightning-layout>
+		</div>
+	</lightning-quick-action-panel>
+</template>
