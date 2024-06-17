@@ -34,7 +34,7 @@
 			}
 
 			.invoice-details {
-				width: 70%;
+				width: 80%;
 				line-height: 0px;
 				margin: none;
 				text-align: right;
@@ -219,8 +219,6 @@
 								</td>
 
 								<td class="customer-details textright">
-									<!-- Acme Corp.<br /> John Doe<br />
-									john@example.com -->
 									{!Invoice__c.Customer__r.Name}<br /> {!Invoice__c.Customer__r.BillingStreet}<br />
 									{!Invoice__c.Customer__r.BillingCity}, {!Invoice__c.Customer__r.BillingState}
 									{!Invoice__c.Customer__r.BillingPostalCode}<br />
@@ -243,7 +241,7 @@
 				</tr>
 
 				<tr class="details">
-					<td>123123</td>
+					<td>{!Invoice__c.Customer__r.Customer_ID__c}</td>
 					<!-- <td>01/01/2025</td>
 					<td>654321</td> -->
 					<td>Net 30</td>
@@ -259,7 +257,8 @@
 			<!-- # Line Items Table -->
 			<table class="line-items">
 				<tr class="heading">
-					<td>Item Code</td>
+					<td>Item Code/Description</td>
+					<!-- <td></td> -->
 					<td>Unit Price</td>
 					<td>Quantity</td>
 					<td>Extended Price</td>
@@ -268,7 +267,8 @@
 				<apex:repeat var="entry"
 					value="{!Invoice__c.Invoice_Entries__r}">
 					<tr class="item">
-						<td>{!entry.Name}</td>
+						<td>{!entry.Memo__c}</td>
+						<!-- <td></td> -->
 						<td>
 							<apex:outputText value="{0, number, #,##0.00}">
 								<apex:param value="{!entry.Amount__c}" />
@@ -282,27 +282,6 @@
 						</td>
 					</tr>
 				</apex:repeat>
-
-				<!-- <tr class="item">
-					<td>Website design</td>
-					<td>$300.00</td>
-					<td>1</td>
-					<td>$300.00</td>
-				</tr>
-
-				<tr class="item">
-					<td>Hosting (3 months)</td>
-					<td>$75.00</td>
-					<td>1</td>
-					<td>$75.00</td>
-				</tr>
-
-				<tr class="item lastrow">
-					<td>Domain name (1 year)</td>
-					<td>$10.00</td>
-					<td>1</td>
-					<td>$10.00</td>
-				</tr> -->
 			</table>
 			<br />
 			<table

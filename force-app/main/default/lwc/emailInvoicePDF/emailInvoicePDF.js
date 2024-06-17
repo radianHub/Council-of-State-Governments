@@ -19,6 +19,7 @@ export default class EmailInvoicePDF extends NavigationMixin(LightningElement) {
 	subject;
 	emailBody;
 	emailRecipients;
+	isFirstFormat = true;
 
 	@wire(getTextTemplate, { recordId: '$recordId' })
 	getWrapper({ error, data }) {
@@ -28,6 +29,7 @@ export default class EmailInvoicePDF extends NavigationMixin(LightningElement) {
 			this.template = data.template;
 			this.subject = 'CSG Invoice ' + data.invoice.Invoice_Number__c;
 			this.emailBody = data.templateText;
+			// console.log(this.emailBody);
 			this.emailRecipients = data.invoice?.Contact__r?.Email;
 			this.error = undefined;
 			this.isLoading = false;
@@ -85,6 +87,22 @@ export default class EmailInvoicePDF extends NavigationMixin(LightningElement) {
 			console.error(error);
 			this.isLoading = false;
 		}
+	}
+
+	handleChangeBody(event) {
+		const updatedText = event.target.value;
+		if (this.isFirstFormat) {
+			console.log(updatedText);
+			updatedText.replaceAll('<p><br></p>', '');
+			this.isFirstFormat = false;
+			console.log(updatedText);
+		}
+		this.emailBody = updatedText;
+		console.log(this.emailBody);
+	}
+
+	handleChangeSubject(event) {
+		this.subject = event.target.value;
 	}
 
 	// Close Modal with output

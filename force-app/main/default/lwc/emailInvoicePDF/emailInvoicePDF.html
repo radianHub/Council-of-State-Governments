@@ -23,10 +23,14 @@
 				<lightning-input
 					type="text"
 					label="Subject"
-					value={subject}></lightning-input>
+					value={subject}
+					onchange={handleChangeSubject}></lightning-input>
 			</div>
 			<div>
-				<lightning-input-rich-text value={emailBody}> </lightning-input-rich-text>
+				<lightning-input-rich-text
+					value={emailBody}
+					onchange={handleChangeBody}>
+				</lightning-input-rich-text>
 			</div>
 			<!-- <template if:false={hasErrors}>
 				<template if:false={hasPDF}>
