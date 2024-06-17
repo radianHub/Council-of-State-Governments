@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>application/pdf</contentType>
+    <description>Included in Member and Donor Invoice emails. Last Uploaded version: 1-2024</description>
+</StaticResource>

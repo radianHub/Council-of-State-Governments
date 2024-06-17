@@ -1,0 +1,322 @@
+<apex:page standardController="Invoice__c"
+	renderAs="pdf"
+	showHeader="false"
+	sidebar="false"
+	standardStylesheets="false"
+	applyBodyTag="false"
+	applyHtmlTag="false">
+	<head>
+		<style>
+			.invoice-box {
+				max-width: 800px;
+				margin: auto;
+				padding: 10px;
+				border: 1px solid #eee;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+			}
+
+			table {
+				width: 100%;
+				line-height: inherit;
+				/* text-align: left; */
+			}
+
+			.totals {
+				width: 40%;
+				line-height: inherit;
+				text-align: right;
+				margin: none;
+				background: #eee;
+			}
+
+			.invoice-details {
+				width: 80%;
+				line-height: 0px;
+				margin: none;
+				text-align: right;
+			}
+
+			.customer-details {
+			}
+
+			.textright {
+				text-align: right;
+			}
+
+			.largetext {
+				font-size: 50px;
+				/* font-weight: bold; */
+			}
+
+			.invoice-details tr td:first-child {
+				text-align: right;
+			}
+
+			.account-info tr td:first-child + td + td {
+				text-align: right;
+			}
+
+			.line-items tr td:first-child + td + td + td {
+				text-align: right;
+			}
+
+			.invoice-box table td {
+				padding: 5px;
+				vertical-align: top;
+			}
+
+			/* .invoice-box table tr  */
+			td:last-child {
+				text-align: right;
+			}
+
+			.invoice-box table tr.top table td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.top table td.title {
+				font-size: 45px;
+				line-height: 45px;
+				color: #333;
+			}
+
+			.invoice-box table tr.information table td {
+				padding-bottom: 40px;
+			}
+
+			.invoice-box table tr.heading td {
+				background: #eee;
+				border-bottom: 1px solid #ddd;
+				font-weight: bold;
+			}
+
+			.invoice-box table tr.details td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.item td {
+				border-bottom: 1px solid #eee;
+			}
+
+			/* .invoice-box table tr.item.lastrow td {
+				border-bottom: none;
+			} */
+
+			.invoice-box table tr.subtotal td {
+				/* font-weight: bold; */
+				color: #333;
+				margin: none;
+			}
+
+			.invoice-box table tr.total td {
+				border-top: 2px solid #d3d3d3;
+				font-weight: bold;
+				margin: none;
+			}
+
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
+
+			@media print {
+				.invoice-box {
+					max-width: unset;
+					box-shadow: none;
+					border: 0px;
+				}
+			}
+
+			/** RTL **/
+			.invoice-box.rtl {
+				direction: rtl;
+				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+			}
+
+			.invoice-box.rtl table {
+				text-align: right;
+			}
+
+			.invoice-box.rtl table tr td:last-child {
+				text-align: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="invoice-box">
+			<table
+				cellpadding="0"
+				cellspacing="0">
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									<apex:image url="{!$Resource.CSGWords_Logo}"
+										width="250px" />
+								</td>
+
+								<td>
+									<table
+										class="invoice-details"
+										align="right">
+										<tr>
+											<td>Invoice #:</td>
+											<td>{!Invoice__c.Invoice_Number__c}</td>
+										</tr>
+										<tr>
+											<td>Invoice Date:</td>
+											<td>
+												<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+													<apex:param value="{!Invoice__c.Date__c}" />
+												</apex:outputText>
+											</td>
+										</tr>
+										<tr>
+											<td>Due Date:</td>
+											<td>
+												<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+													<apex:param value="{!Invoice__c.Due_Date__c}" />
+												</apex:outputText>
+											</td>
+										</tr>
+										<!-- <tr>
+											<td></td>
+										</tr> -->
+									</table>
+								</td>
+							</tr>
+							<tr class="textright">
+								<td></td>
+								<td class="largetext">INVOICE</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									The Council of State Governments<br /> 1776 Avenue of the States<br /> Lexington, KY
+									40511 <br /><br /> Phone: (800) 800-1910<br />
+									www.csg.org
+								</td>
+
+								<td class="customer-details textright">
+									{!Invoice__c.Customer__r.Name}<br /> {!Invoice__c.Customer__r.BillingStreet}<br />
+									{!Invoice__c.Customer__r.BillingCity}, {!Invoice__c.Customer__r.BillingState}
+									{!Invoice__c.Customer__r.BillingPostalCode}<br />
+									{!Invoice__c.Customer__r.BillingCountry}
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+
+			<!-- # Account Info Table -->
+			<table class="account-info">
+				<tr class="heading">
+					<td>Account No.</td>
+					<!-- <td>Order Date</td>
+					<td>Order Number</td> -->
+					<td>Terms</td>
+					<td>Invoice Date</td>
+				</tr>
+
+				<tr class="details">
+					<td>{!Invoice__c.Customer__r.Customer_ID__c}</td>
+					<!-- <td>01/01/2025</td>
+					<td>654321</td> -->
+					<td>Net 30</td>
+					<td>
+						<apex:outputText value="{0, date, MM'/'dd'/'yyyy}">
+							<apex:param value="{!Invoice__c.Date__c}" />
+						</apex:outputText>
+					</td>
+				</tr>
+			</table>
+			<br />
+
+			<!-- # Line Items Table -->
+			<table class="line-items">
+				<tr class="heading">
+					<td>Item Code/Description</td>
+					<!-- <td></td> -->
+					<td>Unit Price</td>
+					<td>Quantity</td>
+					<td>Extended Price</td>
+				</tr>
+
+				<apex:repeat var="entry"
+					value="{!Invoice__c.Invoice_Entries__r}">
+					<tr class="item">
+						<td>{!entry.Memo__c}</td>
+						<!-- <td></td> -->
+						<td>
+							<apex:outputText value="{0, number, #,##0.00}">
+								<apex:param value="{!entry.Amount__c}" />
+							</apex:outputText>
+						</td>
+						<td>1</td>
+						<td>
+							<apex:outputText value="{0, number, #,##0.00}">
+								<apex:param value="{!entry.Amount__c}" />
+							</apex:outputText>
+						</td>
+					</tr>
+				</apex:repeat>
+			</table>
+			<br />
+			<table
+				class="totals"
+				align="right">
+				<!--todo align=right is somehow pushing the box outside of the frame? -->
+				<tr class="subtotal">
+					<td>Subtotal:</td>
+					<td>
+						<apex:outputText value="{0, number, #,##0.00}">
+							<apex:param value="{!Invoice__c.Amount__c}" />
+						</apex:outputText>
+					</td>
+				</tr>
+				<!-- <tr class="subtotal">
+					<td>Tax:</td>
+					<td>$20.00</td>
+				</tr> -->
+				<tr class="subtotal">
+					<td>Amount Received:</td>
+					<td>
+						<apex:outputText value="{0, number, #,##0.00}">
+							<apex:param value="{!Invoice__c.Amount_Paid__c}" />
+						</apex:outputText>
+					</td>
+				</tr>
+				<tr class="total">
+					<td>Total:</td>
+					<td>
+						<apex:outputText value="{0, Number, Currency}">
+							<apex:param value="{!Invoice__c.Amount_Remaining__c}" />
+						</apex:outputText>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</apex:page>
