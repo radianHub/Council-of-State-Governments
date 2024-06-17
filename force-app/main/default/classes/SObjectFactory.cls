@@ -83,7 +83,9 @@ public class SObjectFactory {
 
 	// providers
 	public static IFieldProvider provideStandardProfile() {
-		return new SObjectFieldProviders.QueryParentProvider('SELECT Id FROM Profile WHERE Name = \'Standard User\' LIMIT 1');
+		return new SObjectFieldProviders.QueryParentProvider(
+			'SELECT Id FROM Profile WHERE Name = \'Standard User\' LIMIT 1'
+		);
 	}
 
 	public static IFieldProvider provideUniqueNumber() {
